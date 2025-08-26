@@ -1,3 +1,4 @@
+//CustomDrawerContent.tsx
 import React, { useState, useEffect } from 'react';
 import {
     View, Text, StyleSheet, Image, TouchableOpacity, ActivityIndicator,
@@ -25,7 +26,6 @@ export function CustomDrawerContent(props: any) {
 
     const handleLogout = async () => {
         await logout();
-        props.navigation.reset({ index: 0, routes: [{ name: 'SignIn' }] });
     };
 
     return (

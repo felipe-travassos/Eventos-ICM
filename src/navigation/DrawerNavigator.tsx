@@ -6,13 +6,21 @@ import { TouchableOpacity, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { TabNavigator } from './TabNavigator';
-import { SettingsScreen } from '../screens/SettingsScreen';
 import { CustomDrawerContent } from './CustomDrawerContent';
 import { theme } from '../theme';
+
+import { SettingsScreen } from '../screens/SettingsScreen';
+import { IcmScreen } from '../screens/IcmScreen';
+import { EventoScreen } from '../screens/EventoScreen';
+import { ProfileScreen } from '../screens/ProfileScreen';
+
 
 export type DrawerParamList = {
   Tabs: undefined;
   Settings: undefined;
+  Icm: undefined;
+  Evento: undefined;
+  Profile: undefined;
 };
 
 const Drawer = createDrawerNavigator<DrawerParamList>();
@@ -52,17 +60,17 @@ export function DrawerNavigator() {
         },
       })}
     >
-      <Drawer.Screen
-        name="Tabs"
-        component={TabNavigator}
-        options={{ title: 'Início' }}
-      />
+      {/* Adicione outras telas do Drawer aqui */}
+      <Drawer.Screen name="Tabs" component={TabNavigator} options={{ title: 'Início' }} />
+      <Drawer.Screen name="Settings" component={SettingsScreen} options={{ title: 'Configurações' }} />
+      <Drawer.Screen name="Icm" component={IcmScreen} options={{ title: 'Cadastro de Igrejas' }} />
+      <Drawer.Screen name="Evento" component={EventoScreen} options={{ title: 'Cadastro de Eventos' }} />
+      <Drawer.Screen name="Profile" component={ProfileScreen} options={{
+        title: 'Meu Perfil', drawerIcon: ({ color, size }) => (
+          <MaterialIcons name="person" size={size} color={color} />),
+      }} />
 
-      <Drawer.Screen
-        name="Settings"
-        component={SettingsScreen}
-        options={{ title: 'Configurações' }}
-      />
+      {/* Você pode adicionar mais telas conforme necessário */}
     </Drawer.Navigator>
   );
 }

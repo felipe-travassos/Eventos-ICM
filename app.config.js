@@ -6,9 +6,16 @@ export default ({ config }) => ({
     ...config.expo, // mantém o que já existe no app.json
     name: "Eventos ICM",
     icon: "./assets/icons/android/play-store-icon.png",
+    // CONFIGURAÇÃO GLOBAL DA SPLASH
+    splash: {
+      image: "./assets/splash.png",
+      resizeMode: "contain",
+      backgroundColor: "#110d99ff"
+    },
+
     android: {
       icon: "./assets/icons/android/play-store-icon.png",
-      package: "com.felipetravassos.seuapp"
+      package: "com.felipetravassos.seuapp",
     },
     ios: {
       icon: "./assets/icons/ios/icon.png",
@@ -28,7 +35,10 @@ export default ({ config }) => ({
       firebaseProjectId: process.env.FIREBASE_PROJECT_ID,
       firebaseStorageBucket: process.env.FIREBASE_STORAGE_BUCKET,
       firebaseMessagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
-      firebaseAppId: process.env.FIREBASE_APP_ID
+      firebaseAppId: process.env.FIREBASE_APP_ID,
+
+      mercadoPagoAccessToken: process.env.MERCADO_PAGO_ACCESS_TOKEN,
+      mercadoPagoPublicKey: process.env.MERCADO_PAGO_PUBLIC_KEY,
     }
   }
 });

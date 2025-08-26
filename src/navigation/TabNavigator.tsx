@@ -1,3 +1,4 @@
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { SubscriptionScreen } from '../screens/tabs/SubscriptionScreen';
 import { CompletedScreen } from '../screens/tabs/CompletedScreen';
